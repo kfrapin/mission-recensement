@@ -16,4 +16,4 @@ app/config/parameters.yml
 *.swp
 *.swo
 *.swn
-.vim
+*.vim
