@@ -1,0 +1,7 @@
+parameters:
+#    atos_mission_recensement.example.class: Atos\MissionRecensementBundle\Example
+
+services:
+#    atos_mission_recensement.example:
+#        class: %atos_mission_recensement.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
