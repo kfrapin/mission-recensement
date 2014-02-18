@@ -1,3 +1,39 @@
-atos_mission_recensement_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: AtosMissionRecensementBundle:Default:index }
+homepage:
+    pattern:  /
+    defaults: { _controller: "AtosMissionRecensementBundle:Default:index" }
+
+AtosMissionRecensementBundle_client:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/client.yml"
+    prefix:   /client
+
+AtosMissionRecensementBundle_domaine:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/domaine.yml"
+    prefix:   /domaine
+
+AtosMissionRecensementBundle_employe:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/employe.yml"
+    prefix:   /employe
+
+AtosMissionRecensementBundle_metier:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/metier.yml"
+    prefix:   /metier
+
+AtosMissionRecensementBundle_mission:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/mission.yml"
+    prefix:   /mission
+
+AtosMissionRecensementBundle_niveau:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/niveau.yml"
+    prefix:   /niveau
+
+AtosMissionRecensementBundle_specialitemetier:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/specialitemetier.yml"
+    prefix:   /specialitemetier
+
+AtosMissionRecensementBundle_type:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/type.yml"
+    prefix:   /type
+
+AtosMissionRecensementBundle_typeprestation:
+    resource: "@AtosMissionRecensementBundle/Resources/config/routing/typeprestation.yml"
+    prefix:   /typeprestation
