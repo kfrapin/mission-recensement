@@ -7,6 +7,18 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <ul>
+            <li><a href="{{ path('client') }}">Clients</a></li>
+            <li><a href="{{ path('domaine') }}">Domaines</a></li>
+            <li><a href="{{ path('employe') }}">Employés</a></li>
+            <li><a href="{{ path('metier') }}">Métiers</a></li>
+            <li><a href="{{ path('mission') }}">Missions</a></li>
+            <li><a href="{{ path('niveau') }}">Niveaux</a></li>
+            <li><a href="{{ path('specialitemetier') }}">Spécialités métier</a></li>
+            <li><a href="{{ path('type') }}">Types</a></li>
+            <li><a href="{{ path('typeprestation') }}">Types prestation</a></li>
+        </ul>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
