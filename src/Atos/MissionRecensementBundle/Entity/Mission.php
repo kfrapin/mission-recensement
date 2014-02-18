@@ -379,4 +379,49 @@ class Mission
     {
         return $this->nom;
     }
+
+
+    /**
+     * Get date interval.
+     *
+     * @return DateInterval
+     */
+    public function getDateInterval()
+    {
+        $start = $this->getDateDebut();
+        $end = $this->getDateFin();
+        if($end) 
+        {
+            return $start->diff($end);
+        }
+        return null;
+    }
+
+    /**
+     * Get duree annees.
+     *
+     * @return integer
+     */
+    public function getDureeAnnees()
+    {
+        $interval = $this->getDateInterval();
+        if($interval) 
+        {
+            return $interval->y;
+        }
+    }
+
+    /**
+     * Get duree mois.
+     *
+     * @return integer
+     */
+    public function getDureeMois()
+    {
+        $interval = $this->getDateInterval();
+        if($interval) 
+        {
+            return $interval->m;
+        }
+    }
 }

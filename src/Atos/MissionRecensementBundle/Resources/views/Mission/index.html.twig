@@ -7,12 +7,16 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Descriptionprocessus</th>
-                <th>Descriptiontechnique</th>
-                <th>Descriptionfonction</th>
-                <th>Datedebut</th>
-                <th>Datefin</th>
+                <th>Employé</th>
+                <th>Intitulé de la mission</th>
+                <th>Client</th>
+                <th>Type de prestation</th>
+                <th>Métier</th>
+                <th>Domaine</th>
+                <th>Sous-domaine</th>
+                <th>Type</th>
+                <th>Date début</th>
+                <th>Durée</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,12 +24,26 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('mission_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>TODO</td>
                 <td>{{ entity.nom }}</td>
-                <td>{{ entity.descriptionProcessus }}</td>
-                <td>{{ entity.descriptionTechnique }}</td>
-                <td>{{ entity.descriptionFonction }}</td>
-                <td>{% if entity.dateDebut %}{{ entity.dateDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.dateFin %}{{ entity.dateFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.client }}</td>
+                <td>{{ entity.typePrestation }}</td>
+                <td>{{ entity.metier }}</td>
+                <td>TODO</td>
+                <td>TODO</td>
+                <td>{{ entity.type }}</td>
+                <td>{% if entity.dateDebut %}{{ entity.dateDebut|date('d/m/Y') }}{% endif %}</td>
+                <td>
+                    {% if entity.dateFin %}
+                        {% if entity.dureeAnnees == 1 %} 
+                            1 an et 
+                        {% elseif entity.dureeAnnees > 1 %}
+                            {{ entity.dureeAnnees }} ans et
+                        {% endif %}
+                        {{ entity.dureeMois }} mois
+                    {% else %}
+                        Mission en cours
+                    {% endif %}
                 <td>
                 <ul>
                     <li>
