@@ -146,6 +146,7 @@ class EmployeController extends Controller
             'method' => 'PUT',
         ));
 
+        $form->get('roles')->setData($entity->getRoles()[0]);
         $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
@@ -169,6 +170,7 @@ class EmployeController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->setRoles(array( $editForm->get('roles')->getData() ));
             $em->flush();
 
             return $this->redirect($this->generateUrl('employe_edit', array('id' => $id)));
