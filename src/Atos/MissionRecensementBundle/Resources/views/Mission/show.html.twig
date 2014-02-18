@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Mission</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Descriptionprocessus</th>
+                <td>{{ entity.descriptionProcessus }}</td>
+            </tr>
+            <tr>
+                <th>Descriptiontechnique</th>
+                <td>{{ entity.descriptionTechnique }}</td>
+            </tr>
+            <tr>
+                <th>Descriptionfonction</th>
+                <td>{{ entity.descriptionFonction }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ entity.dateDebut|date('d/m/Y') }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ entity.dateFin|date('d/m/Y') }}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ entity.client }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('mission') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('mission_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
