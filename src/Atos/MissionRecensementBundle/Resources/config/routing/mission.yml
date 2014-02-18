@@ -1,0 +1,30 @@
+mission:
+    pattern:  /
+    defaults: { _controller: "AtosMissionRecensementBundle:Mission:index" }
+
+mission_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AtosMissionRecensementBundle:Mission:show" }
+
+mission_new:
+    pattern:  /new
+    defaults: { _controller: "AtosMissionRecensementBundle:Mission:new" }
+
+mission_create:
+    pattern:  /create
+    defaults: { _controller: "AtosMissionRecensementBundle:Mission:create" }
+    requirements: { _method: post }
+
+mission_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AtosMissionRecensementBundle:Mission:edit" }
+
+mission_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AtosMissionRecensementBundle:Mission:update" }
+    requirements: { _method: post|put }
+
+mission_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AtosMissionRecensementBundle:Mission:delete" }
+    requirements: { _method: post|delete }

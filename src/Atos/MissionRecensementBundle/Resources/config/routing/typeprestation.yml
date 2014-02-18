@@ -1,0 +1,30 @@
+typeprestation:
+    pattern:  /
+    defaults: { _controller: "AtosMissionRecensementBundle:TypePrestation:index" }
+
+typeprestation_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AtosMissionRecensementBundle:TypePrestation:show" }
+
+typeprestation_new:
+    pattern:  /new
+    defaults: { _controller: "AtosMissionRecensementBundle:TypePrestation:new" }
+
+typeprestation_create:
+    pattern:  /create
+    defaults: { _controller: "AtosMissionRecensementBundle:TypePrestation:create" }
+    requirements: { _method: post }
+
+typeprestation_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AtosMissionRecensementBundle:TypePrestation:edit" }
+
+typeprestation_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AtosMissionRecensementBundle:TypePrestation:update" }
+    requirements: { _method: post|put }
+
+typeprestation_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AtosMissionRecensementBundle:TypePrestation:delete" }
+    requirements: { _method: post|delete }

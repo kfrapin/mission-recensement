@@ -1,0 +1,30 @@
+specialitemetier:
+    pattern:  /
+    defaults: { _controller: "AtosMissionRecensementBundle:SpecialiteMetier:index" }
+
+specialitemetier_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AtosMissionRecensementBundle:SpecialiteMetier:show" }
+
+specialitemetier_new:
+    pattern:  /new
+    defaults: { _controller: "AtosMissionRecensementBundle:SpecialiteMetier:new" }
+
+specialitemetier_create:
+    pattern:  /create
+    defaults: { _controller: "AtosMissionRecensementBundle:SpecialiteMetier:create" }
+    requirements: { _method: post }
+
+specialitemetier_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AtosMissionRecensementBundle:SpecialiteMetier:edit" }
+
+specialitemetier_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AtosMissionRecensementBundle:SpecialiteMetier:update" }
+    requirements: { _method: post|put }
+
+specialitemetier_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AtosMissionRecensementBundle:SpecialiteMetier:delete" }
+    requirements: { _method: post|delete }

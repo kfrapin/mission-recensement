@@ -1,0 +1,30 @@
+metier:
+    pattern:  /
+    defaults: { _controller: "AtosMissionRecensementBundle:Metier:index" }
+
+metier_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AtosMissionRecensementBundle:Metier:show" }
+
+metier_new:
+    pattern:  /new
+    defaults: { _controller: "AtosMissionRecensementBundle:Metier:new" }
+
+metier_create:
+    pattern:  /create
+    defaults: { _controller: "AtosMissionRecensementBundle:Metier:create" }
+    requirements: { _method: post }
+
+metier_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AtosMissionRecensementBundle:Metier:edit" }
+
+metier_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AtosMissionRecensementBundle:Metier:update" }
+    requirements: { _method: post|put }
+
+metier_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AtosMissionRecensementBundle:Metier:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+domaine:
+    pattern:  /
+    defaults: { _controller: "AtosMissionRecensementBundle:Domaine:index" }
+
+domaine_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AtosMissionRecensementBundle:Domaine:show" }
+
+domaine_new:
+    pattern:  /new
+    defaults: { _controller: "AtosMissionRecensementBundle:Domaine:new" }
+
+domaine_create:
+    pattern:  /create
+    defaults: { _controller: "AtosMissionRecensementBundle:Domaine:create" }
+    requirements: { _method: post }
+
+domaine_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AtosMissionRecensementBundle:Domaine:edit" }
+
+domaine_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AtosMissionRecensementBundle:Domaine:update" }
+    requirements: { _method: post|put }
+
+domaine_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AtosMissionRecensementBundle:Domaine:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+employe:
+    pattern:  /
+    defaults: { _controller: "AtosMissionRecensementBundle:Employe:index" }
+
+employe_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AtosMissionRecensementBundle:Employe:show" }
+
+employe_new:
+    pattern:  /new
+    defaults: { _controller: "AtosMissionRecensementBundle:Employe:new" }
+
+employe_create:
+    pattern:  /create
+    defaults: { _controller: "AtosMissionRecensementBundle:Employe:create" }
+    requirements: { _method: post }
+
+employe_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AtosMissionRecensementBundle:Employe:edit" }
+
+employe_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AtosMissionRecensementBundle:Employe:update" }
+    requirements: { _method: post|put }
+
+employe_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AtosMissionRecensementBundle:Employe:delete" }
+    requirements: { _method: post|delete }

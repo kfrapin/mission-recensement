@@ -1,0 +1,30 @@
+niveau:
+    pattern:  /
+    defaults: { _controller: "AtosMissionRecensementBundle:Niveau:index" }
+
+niveau_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AtosMissionRecensementBundle:Niveau:show" }
+
+niveau_new:
+    pattern:  /new
+    defaults: { _controller: "AtosMissionRecensementBundle:Niveau:new" }
+
+niveau_create:
+    pattern:  /create
+    defaults: { _controller: "AtosMissionRecensementBundle:Niveau:create" }
+    requirements: { _method: post }
+
+niveau_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AtosMissionRecensementBundle:Niveau:edit" }
+
+niveau_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AtosMissionRecensementBundle:Niveau:update" }
+    requirements: { _method: post|put }
+
+niveau_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AtosMissionRecensementBundle:Niveau:delete" }
+    requirements: { _method: post|delete }
