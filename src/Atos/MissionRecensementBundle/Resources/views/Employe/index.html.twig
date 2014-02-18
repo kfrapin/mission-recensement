@@ -8,8 +8,10 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>Prenom</th>
+                <th>Prénom</th>
                 <th>Matricule</th>
+                <th>Email</th>
+                <th>Actif ?</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +22,14 @@
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.prenom }}</td>
                 <td>{{ entity.matricule }}</td>
+                <td>{{ entity.email }}</td>
+                <td>
+                {% if entity.enabled == true %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+                </td>
                 <td>
                 <ul>
                     <li>
