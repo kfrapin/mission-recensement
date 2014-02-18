@@ -1,15 +1,17 @@
 {% extends '::base.html.twig' %}
 
-{% block title -%} Liste des clients {% endblock %}
+{% block title -%} 
+    Liste des clients 
+{% endblock %}
 
 {% block body -%}
-    <h1>Client list</h1>
+    <h1>Liste des clients</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Raisonsociale</th>
+                <th>Raison sociale</th>
                 <th>Siren</th>
                 <th>Nic</th>
                 <th>Actions</th>
@@ -25,10 +27,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('client_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('client_show', { 'id': entity.id }) }}">Visualiser</a>
                     </li>
                     <li>
-                        <a href="{{ path('client_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('client_edit', { 'id': entity.id }) }}">Éditer</a>
                     </li>
                 </ul>
                 </td>
@@ -40,7 +42,7 @@
         <ul>
         <li>
             <a href="{{ path('client_new') }}">
-                Create a new entry
+                Créer une nouvelle entrée
             </a>
         </li>
     </ul>

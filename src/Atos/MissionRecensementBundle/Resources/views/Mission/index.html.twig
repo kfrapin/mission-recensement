@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Mission list</h1>
+    <h1>Liste de missions</h1>
 
     <table class="records_list">
         <thead>
@@ -29,10 +29,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('mission_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('mission_show', { 'id': entity.id }) }}">Visualiser</a>
                     </li>
                     <li>
-                        <a href="{{ path('mission_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('mission_edit', { 'id': entity.id }) }}">Éditer</a>
                     </li>
                 </ul>
                 </td>
@@ -44,7 +44,7 @@
         <ul>
         <li>
             <a href="{{ path('mission_new') }}">
-                Create a new entry
+                Créer une nouvelle entrée
             </a>
         </li>
     </ul>
