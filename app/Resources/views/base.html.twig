@@ -8,15 +8,17 @@
     </head>
     <body>
         <ul>
-            <li><a href="{{ path('client') }}">Clients</a></li>
-            <li><a href="{{ path('domaine') }}">Domaines</a></li>
-            <li><a href="{{ path('employe') }}">Employés</a></li>
-            <li><a href="{{ path('metier') }}">Métiers</a></li>
             <li><a href="{{ path('mission') }}">Missions</a></li>
-            <li><a href="{{ path('niveau') }}">Niveaux</a></li>
-            <li><a href="{{ path('specialitemetier') }}">Spécialités métier</a></li>
-            <li><a href="{{ path('type') }}">Types</a></li>
-            <li><a href="{{ path('typeprestation') }}">Types prestation</a></li>
+            {% if is_granted("ROLE_ADMIN") %}
+                <li><a href="{{ path('client') }}">Clients</a></li>
+                <li><a href="{{ path('domaine') }}">Domaines</a></li>
+                <li><a href="{{ path('employe') }}">Employés</a></li>
+                <li><a href="{{ path('metier') }}">Métiers</a></li>
+                <li><a href="{{ path('niveau') }}">Niveaux</a></li>
+                <li><a href="{{ path('specialitemetier') }}">Spécialités métier</a></li>
+                <li><a href="{{ path('type') }}">Types</a></li>
+                <li><a href="{{ path('typeprestation') }}">Types prestation</a></li>
+            {% endif %}
         </ul>
 
         {% block body %}{% endblock %}
