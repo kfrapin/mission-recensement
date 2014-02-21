@@ -5,6 +5,7 @@ namespace Atos\MissionRecensementBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class MissionType extends AbstractType
 {
@@ -16,17 +17,29 @@ class MissionType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('client')
+            ->add('employe')
+            ->add('domaine', 'entity', array(
+                'class' => 'Atos\MissionRecensementBundle\Entity\Domaine',
+                'query_builder' =>  function(EntityRepository $er) {
+                                        return $er->getRoots();
+                                    }
+            ))
+            ->add('sousDomaine', 'entity', array(
+                'class' => 'Atos\MissionRecensementBundle\Entity\Domaine',
+                'query_builder' =>  function(EntityRepository $er) {
+                                        return $er->getNonRoots();
+                                    }
+            ))
+            ->add('metier')
+            ->add('typePrestation')
+            ->add('niveau')
+            ->add('type')
             ->add('descriptionProcessus')
             ->add('descriptionTechnique')
             ->add('descriptionFonction')
             ->add('dateDebut')
             ->add('dateFin')
-            ->add('employe')
-            ->add('client')
-            ->add('metier')
-            ->add('typePrestation')
-            ->add('niveau')
-            ->add('type')
         ;
     }
     
