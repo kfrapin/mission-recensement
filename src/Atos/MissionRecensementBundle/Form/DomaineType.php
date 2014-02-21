@@ -16,6 +16,11 @@ class DomaineType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('domaineParent', 'entity', array(
+                'class' => 'Atos\MissionRecensementBundle\Entity\Domaine',
+                'empty_value' => '== Choisissez un domaine parent (si nécessaire) ==',
+                'required' => false
+            ))
         ;
     }
     
