@@ -11,7 +11,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
+                <th>Domaine</th>
+                <th>Domaine parent</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +21,11 @@
             <tr>
                 <td><a href="{{ path('domaine_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nom }}</td>
+                {% if entity.domaineParent %}</td>
+                    <td>{{ entity.domaineParent.nom }}</td>
+                {% else %}
+                    <td><i>Aucun</i></td>
+                {% endif %}
                 <td>
                 <ul>
                     <li>

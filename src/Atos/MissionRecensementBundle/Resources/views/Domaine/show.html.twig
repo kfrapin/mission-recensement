@@ -10,8 +10,16 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Nom</th>
+                <th>Domaine</th>
                 <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Domaine parent</th>
+                {% if entity.domaineParent %}</td>
+                    <td>{{ entity.domaineParent.nom }}</td>
+                {% else %}
+                    <td><i>Aucun</i></td>
+                {% endif %}
             </tr>
         </tbody>
     </table>
