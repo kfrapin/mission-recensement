@@ -95,6 +95,16 @@ class Mission
     private $type;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Atos\MissionRecensementBundle\Entity\Domaine")
+     */
+    private $domaine;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Atos\MissionRecensementBundle\Entity\Domaine")
+     */
+    private $sousDomaine;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -423,5 +433,51 @@ class Mission
         {
             return $interval->m;
         }
+    }
+
+    /**
+     * Set domaine
+     *
+     * @param \Atos\MissionRecensementBundle\Entity\Domaine $domaine
+     * @return Mission
+     */
+    public function setDomaine(\Atos\MissionRecensementBundle\Entity\Domaine $domaine = null)
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    /**
+     * Get domaine
+     *
+     * @return \Atos\MissionRecensementBundle\Entity\Domaine 
+     */
+    public function getDomaine()
+    {
+        return $this->domaine;
+    }
+
+    /**
+     * Set sousDomaine
+     *
+     * @param \Atos\MissionRecensementBundle\Entity\Domaine $sousDomaine
+     * @return Mission
+     */
+    public function setSousDomaine(\Atos\MissionRecensementBundle\Entity\Domaine $sousDomaine = null)
+    {
+        $this->sousDomaine = $sousDomaine;
+
+        return $this;
+    }
+
+    /**
+     * Get sousDomaine
+     *
+     * @return \Atos\MissionRecensementBundle\Entity\Domaine 
+     */
+    public function getSousDomaine()
+    {
+        return $this->sousDomaine;
     }
 }
