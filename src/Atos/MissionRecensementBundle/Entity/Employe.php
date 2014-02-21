@@ -2,6 +2,8 @@
 
 namespace Atos\MissionRecensementBundle\Entity;
 
+use Atos\MissionRecensementBundle\Entity\SpecialiteMetier as SpecialiteMetier;
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
@@ -44,11 +46,17 @@ class Employe extends BaseUser
     private $matricule;
 
     /**
+    * @ORM\ManyToMany(targetEntity="Atos\MissionRecensementBundle\Entity\SpecialiteMetier", cascade={"persist"})
+    */
+    private $specialitesMetier;
+
+    /**
      * Default constructor
      */
     public function __construct()
     {
         parent::__construct();
+        $this->specialitesMetier = new ArrayCollection();
     }
 
     /**
@@ -128,6 +136,36 @@ class Employe extends BaseUser
     public function getMatricule()
     {
         return $this->matricule;
+    }
+
+    /**
+     * Add specialiteMetier.
+     *
+     * @param SpecialiteMetier specialiteMetier
+     */
+    public function addSpecialiteMetier(SpecialiteMetier $specialiteMetier)
+    {
+        $this->specialitesMetier[] = $specialiteMetier;
+    }
+
+    /**
+     * Remove specialiteMetier.
+     *
+     * @param SpecialiteMetier specialiteMetier
+     */
+    public function removeSpecialiteMetier(SpecialiteMetier $specialiteMetier)
+    {
+        $this->specialitesMetier->removeElement($specialiteMetier);
+    }
+
+    /**
+     * Get specialitesMetier.
+     *
+     * @return SpecialiteMetier 
+     */
+    public function getSpecialitesMetier()
+    {
+        return $this->specialitesMetier;
     }
 
     /**
