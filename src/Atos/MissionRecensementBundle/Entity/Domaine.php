@@ -28,6 +28,10 @@ class Domaine
      */
     private $nom;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="Atos\MissionRecensementBundle\Entity\Domaine", cascade={"persist"})
+     */
+    private $domaineParent;
 
     /**
      * Get id
@@ -70,5 +74,35 @@ class Domaine
     public function __toString()
     {
         return $this->getNom(); 
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->domaineParent = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set domaineParent
+     *
+     * @param \Atos\MissionRecensementBundle\Entity\Domaine $domaineParent
+     * @return Domaine
+     */
+    public function setDomaineParent(\Atos\MissionRecensementBundle\Entity\Domaine $domaineParent = null)
+    {
+        $this->domaineParent = $domaineParent;
+
+        return $this;
+    }
+
+    /**
+     * Get domaineParent
+     *
+     * @return \Atos\MissionRecensementBundle\Entity\Domaine 
+     */
+    public function getDomaineParent()
+    {
+        return $this->domaineParent;
     }
 }
