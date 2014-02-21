@@ -12,4 +12,24 @@ use Doctrine\ORM\EntityRepository;
  */
 class DomaineRepository extends EntityRepository
 {
+
+    public function getRoots()
+    {
+        $qb = $this->createQueryBuilder("d");
+        
+        $qb->where($qb->expr()->isNull("d.domaineParent"));
+        $qb->orderBy("d.nom");
+        
+        return $qb;
+    }
+
+    public function getNonRoots()
+    {
+        $qb = $this->createQueryBuilder("d");
+        
+        $qb->where($qb->expr()->isNotNull("d.domaineParent"));
+        $qb->orderBy("d.nom");
+        
+        return $qb;
+    }
 }
