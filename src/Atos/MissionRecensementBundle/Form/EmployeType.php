@@ -39,8 +39,12 @@ class EmployeType extends AbstractType
                 'first_options' => array( 'label' => 'Mot de passe'),
                 'second_options' => array( 'label' => 'Mot de passe (confirmation)'),
            ))
-           
-        ;
+           ->add('specialitesMetier', 'entity', array(
+                'class' => 'Atos\MissionRecensementBundle\Entity\SpecialiteMetier',
+                'expanded' => true,
+                'multiple' => true
+           ))
+           ;
     }
     
     /**
