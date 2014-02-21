@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+
+{% block stylesheets %}
+    {% stylesheets '@AtosMissionRecensementBundle/Resources/public/css/*' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {% javascripts '@AtosMissionRecensementBundle/Resources/public/js/jquery-1.11.0.min.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts '@AtosMissionRecensementBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
