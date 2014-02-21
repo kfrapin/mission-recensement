@@ -28,7 +28,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('mission_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>TODO</td>
+                <td>{{ entity.employe }}</td>
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.client }}</td>
                 <td>{{ entity.typePrestation }}</td>
