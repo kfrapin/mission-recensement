@@ -28,3 +28,7 @@ mission_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "AtosMissionRecensementBundle:Mission:delete" }
     requirements: { _method: post|delete }
+
+mission_show_employe_missions:
+    pattern:  /show-employe-missions/{id}
+    defaults: { _controller: "AtosMissionRecensementBundle:Mission:showEmployeMissions" }
