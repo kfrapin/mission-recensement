@@ -10,7 +10,6 @@
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Actions</th>
             </tr>
@@ -18,7 +17,6 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('specialitemetier_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nom }}</td>
                 <td>
                 <ul>

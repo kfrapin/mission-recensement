@@ -10,7 +10,6 @@
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Raison sociale</th>
                 <th>Siren</th>
                 <th>Nic</th>
@@ -20,7 +19,6 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('client_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.raisonSociale }}</td>
                 <td>{{ entity.siren }}</td>
                 <td>{{ entity.nic }}</td>

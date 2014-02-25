@@ -12,7 +12,6 @@
     <table class="records_list table table-hover">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Employé</th>
                 <th>Intitulé de la mission</th>
                 <th>Client</th>
@@ -29,7 +28,6 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('mission_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.employe }}</td>
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.client }}</td>
