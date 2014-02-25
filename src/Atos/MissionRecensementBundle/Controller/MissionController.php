@@ -205,6 +205,23 @@ class MissionController extends Controller
     }
 
     /**
+     * Finds and displays the missions of an Employ entity.
+     *
+     */
+    public function showEmployeMissionsAction($id)
+    {
+        
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('AtosMissionRecensementBundle:Mission')->findByEmploye($id);
+
+
+        return $this->render('AtosMissionRecensementBundle:Mission:index.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
+
+    /**
      * Creates a form to delete a Mission entity by id.
      *
      * @param mixed $id The entity id
