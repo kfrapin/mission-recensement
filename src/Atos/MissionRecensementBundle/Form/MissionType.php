@@ -18,7 +18,6 @@ class MissionType extends AbstractType
         $builder
             ->add('nom')
             ->add('client')
-            ->add('employe')
             ->add('domaine', 'entity', array(
                 'class' => 'Atos\MissionRecensementBundle\Entity\Domaine',
                 'query_builder' =>  function(EntityRepository $er) {

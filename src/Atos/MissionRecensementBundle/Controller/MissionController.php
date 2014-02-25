@@ -54,6 +54,7 @@ class MissionController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $entity->setEmploye($this->get('security.context')->getToken()->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
