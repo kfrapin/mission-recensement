@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Identification</title>
+            {% stylesheets '@AtosMissionRecensementBundle/Resources/public/css/*' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+
+        <div class="container">
+            {% if error %}
+                <div>{{ error|trans }}</div>
+            {% endif %}
+            
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
+                <h2 class="form-signin-heading">Identifiez-vous</h2>
+        
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        
+                <input class="input-block-level" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Identifiant">
+            
+                <input class="input-block-level" type="password" id="password" name="_password" required="required" placeholder="Mot de passe">
+            
+                <label class="checkbox">
+                  <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> Se souvenir de moi
+                </label>
+            
+                <input type="submit" id="_submit" name="_submit" class="btn btn-large btn-primary" value="Identification" />
+            </form>
+        </div>
+
+        {% javascripts '@AtosMissionRecensementBundle/Resources/public/js/jquery-1.11.0.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@AtosMissionRecensementBundle/Resources/public/js/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    </body>
+</html>
