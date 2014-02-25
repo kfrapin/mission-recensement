@@ -25,6 +25,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/js, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/css, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/mission/show-employe-missions, role: ROLE_ADMIN }
         - { path: ^/mission, role: ROLE_USER }
         - { path: ^/$, role: ROLE_USER }
         - { path: ^/, role: ROLE_ADMIN }
