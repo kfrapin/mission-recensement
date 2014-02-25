@@ -214,10 +214,12 @@ class MissionController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('AtosMissionRecensementBundle:Mission')->findByEmploye($id);
+        $employe = $em->getRepository('AtosMissionRecensementBundle:Employe')->find($id);
 
 
-        return $this->render('AtosMissionRecensementBundle:Mission:index.html.twig', array(
+        return $this->render('AtosMissionRecensementBundle:Mission:index-for-employe.html.twig', array(
             'entities' => $entities,
+            'employe' => $employe->getNom() . ' ' . $employe->getPrenom(),
         ));
     }
 
