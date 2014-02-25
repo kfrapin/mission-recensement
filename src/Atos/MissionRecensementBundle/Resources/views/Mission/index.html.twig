@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block body -%}
-    <h1>Liste de missions</h1>
+    {% block body_title %}
+        <h1>Liste de missions</h1>
+    {% endblock %}
 
     <table class="records_list table table-hover">
         <thead>
