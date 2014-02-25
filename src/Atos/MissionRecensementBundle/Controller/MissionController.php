@@ -2,8 +2,9 @@
 
 namespace Atos\MissionRecensementBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 use Atos\MissionRecensementBundle\Entity\Mission;
 use Atos\MissionRecensementBundle\Form\MissionType;
@@ -23,12 +24,25 @@ class MissionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AtosMissionRecensementBundle:Mission')->findAll();
+        // ROLE_ADMIN : Can list all the missions
+        if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) 
+        {
+            // List all missions
+            $entities = $em->getRepository('AtosMissionRecensementBundle:Mission')->findAll();
+        }
+        // Not ROLE_ADMIN : User can list its own missions
+        else
+        {
+            // List the missions of the current user
+            $id = $this->getUser()->getId();
+            $entities = $em->getRepository('AtosMissionRecensementBundle:Mission')->findByEmploye($id);
+        }
 
         return $this->render('AtosMissionRecensementBundle:Mission:index.html.twig', array(
             'entities' => $entities,
         ));
     }
+    
     /**
      * Creates a new Mission entity.
      *
@@ -93,6 +107,13 @@ class MissionController extends Controller
      */
     public function showAction($id)
     {
+        // If the user is not allowed to view the mission
+        if($this->isAllowedOnMission($id) === false)
+        {
+            throw new AccessDeniedException();
+        }
+
+        // If the user is allowed to view the mission
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('AtosMissionRecensementBundle:Mission')->find($id);
@@ -114,6 +135,13 @@ class MissionController extends Controller
      */
     public function editAction($id)
     {
+        // If the user is not allowed to view the mission
+        if(!$this->isAllowedOnMission($id))
+        {
+            throw new AccessDeniedException();
+        }
+
+        // If the user is allowed to view the mission
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('AtosMissionRecensementBundle:Mission')->find($id);
@@ -156,6 +184,13 @@ class MissionController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        // If the user is not allowed to view the mission
+        if(!$this->isAllowedOnMission($id))
+        {
+            throw new AccessDeniedException();
+        }
+
+        // If the user is allowed to view the mission
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('AtosMissionRecensementBundle:Mission')->find($id);
@@ -186,6 +221,13 @@ class MissionController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
+        // If the user is not allowed to view the mission
+        if(!$this->isAllowedOnMission($id))
+        {
+            throw new AccessDeniedException();
+        }
+
+        // If the user is allowed to view the mission
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -210,7 +252,6 @@ class MissionController extends Controller
      */
     public function showEmployeMissionsAction($id)
     {
-        
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('AtosMissionRecensementBundle:Mission')->findByEmploye($id);
@@ -238,5 +279,29 @@ class MissionController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+    /**
+     * Indicates if the current user is allowed
+     * to make actions on the mission passed in parameter.
+     */
+    private function isAllowedOnMission($id)
+    {
+        // Entity manager
+        $em = $this->getDoctrine()->getManager();
+        
+        // Admin can do everything on missions
+        if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) 
+        {
+            return true;
+        }
+        // Users can make actions on their own missions
+        $user_id = $this->getUser()->getId();
+        $mission = $em->getRepository('AtosMissionRecensementBundle:Mission')->find($id);
+        if($mission != null and $user_id === $mission->getEmploye()->getId())
+        {
+            return true;
+        }
+        return false;
     }
 }
