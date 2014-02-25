@@ -125,9 +125,12 @@ class MissionController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
+        // Referer : Previous page
+        $previous_page = $this->get('request')->server->get('HTTP_REFERER');
         return $this->render('AtosMissionRecensementBundle:Mission:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'entity'        => $entity,
+            'previous_page' => $previous_page,
+            'delete_form'   => $deleteForm->createView(),        ));
     }
 
     /**

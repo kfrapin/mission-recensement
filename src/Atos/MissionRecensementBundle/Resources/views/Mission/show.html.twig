@@ -42,9 +42,15 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('mission') }}">
-            Retour à la liste
-        </a>
+        {% if previous_page %}
+            <a href="{{ previous_page }}">
+                Retour à la liste
+            </a>
+        {% else %}
+            <a href="{{ path('mission') }}">
+                Retour à la liste
+            </a>
+        {% endif %}
     </li>
     <li>
         <a href="{{ path('mission_edit', { 'id': entity.id }) }}">
