@@ -5,8 +5,11 @@
 {% endblock %}
 
 
-{% block body -%}
+{% block pre_container %}
     <h1>Édition de client</h1>
+{% endblock %}
+
+{% block container -%}
 
     {{ form(edit_form) }}
 
