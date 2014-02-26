@@ -7,29 +7,88 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <ul class="nav">
-                        <li><a href="{{ path('mission') }}">Missions</a></li>
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <li><a href="{{ path('client') }}">Clients</a></li>
-                            <li><a href="{{ path('domaine') }}">Domaines</a></li>
-                            <li><a href="{{ path('employe') }}">Employés</a></li>
-                            <li><a href="{{ path('metier') }}">Métiers</a></li>
-                            <li><a href="{{ path('niveau') }}">Niveaux</a></li>
-                            <li><a href="{{ path('specialitemetier') }}">Spécialités métier</a></li>
-                            <li><a href="{{ path('type') }}">Types</a></li>
-                            <li><a href="{{ path('typeprestation') }}">Types prestation</a></li>
+        <div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Gestion de missions</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                   <ul class="nav navbar-nav">
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'mission' %}
+                            <li class="active"><a href="{{ path('mission') }}">Missions</a></li>
+                        {% else %}
+                            <li><a href="{{ path('mission') }}">Missions</a></li>
                         {% endif %}
-                    </ul>
+
+                       {% if is_granted("ROLE_ADMIN") %}
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'client' %}
+                           <li class="active"><a href="{{ path('client') }}">Clients</a></li>
+                        {% else %}
+                           <li><a href="{{ path('client') }}">Clients</a></li>
+                        {% endif %}
+
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'domaine' %}
+                           <li class="active"><a href="{{ path('domaine') }}">Domaines</a></li>
+                        {% else %}
+                           <li><a href="{{ path('domaine') }}">Domaines</a></li>
+                        {% endif %}
+
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'employe' %}
+                           <li class="active"><a href="{{ path('employe') }}">Employés</a></li>
+                        {% else %}
+                           <li><a href="{{ path('employe') }}">Employés</a></li>
+                        {% endif %}
+
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'metier' %}
+                           <li class="active"><a href="{{ path('metier') }}">Métiers</a></li>
+                        {% else %}
+                           <li><a href="{{ path('metier') }}">Métiers</a></li>
+                        {% endif %}
+
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'niveau' %}
+                           <li class="active"><a href="{{ path('niveau') }}">Niveaux</a></li>
+                        {% else %}
+                           <li><a href="{{ path('niveau') }}">Niveaux</a></li>
+                        {% endif %}
+
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'specialitemetier' %}
+                           <li class="active"><a href="{{ path('specialitemetier') }}">Spécialités métier</a></li>
+                        {% else %}
+                           <li><a href="{{ path('specialitemetier') }}">Spécialités métier</a></li>
+                        {% endif %}
+
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'type' %}
+                           <li class="active"><a href="{{ path('type') }}">Types</a></li>
+                        {% else %}
+                           <li><a href="{{ path('type') }}">Types</a></li>
+                        {% endif %}
+
+                        {% if app.request.attributes.get('_route') | split('_') | first() == 'typeprestation' %}
+                           <li class="active"><a href="{{ path('typeprestation') }}">Types prestation</a></li>
+                        {% else %}
+                           <li><a href="{{ path('typeprestation') }}">Types prestation</a></li>
+                        {% endif %}
+
+                       {% endif %}
+                   </ul>
                 </div>
             </div>
         </div>
 
-        <div class="hero-unit">
-            {% block body %}{% endblock %}
+        <div class="jumbotron">
+            {% block pre_container %}{% endblock %}
         </div>
+
+        <div class="container">
+            {% block container %}{% endblock %}
+        </div>
+        
         {% block javascripts %}{% endblock %}
     </body>
 </html>
