@@ -14,9 +14,9 @@
         <thead>
             <tr>
                 <th>Employé</th>
-                <th>Intitulé de la mission</th>
                 <th>Client</th>
-                <th>Type de prestation</th>
+                <th>Intitulé mission</th>
+                <th>Type prestation</th>
                 <th>Métier</th>
                 <th>Domaine</th>
                 <th>Sous-domaine</th>
@@ -30,8 +30,8 @@
         {% for entity in entities %}
             <tr>
                 <td>{{ entity.employe }}</td>
-                <td>{{ entity.nom }}</td>
                 <td>{{ entity.client }}</td>
+                <td>{{ entity.nom }}</td>
                 <td>{{ entity.typePrestation }}</td>
                 <td>{{ entity.metier }}</td>
                 <td>{{ entity.domaine }}</td>
@@ -47,8 +47,9 @@
                         {% endif %}
                         {{ entity.dureeMois }} mois
                     {% else %}
-                        Mission en cours
+                        <i>Mission en cours</i>
                     {% endif %}
+                </td>
                 <td>
                 <ul>
                     <li>
