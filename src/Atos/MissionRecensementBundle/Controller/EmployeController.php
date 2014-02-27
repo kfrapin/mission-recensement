@@ -147,7 +147,7 @@ class EmployeController extends Controller
         ));
 
         $form->get('roles')->setData($entity->getRoles()[0]);
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
 
         return $form;
     }
