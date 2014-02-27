@@ -17,7 +17,10 @@
                 <th>Prénom</th>
                 <th>Matricule</th>
                 <th>Email</th>
+                <th>Identifiant</th>
+                <th>Admin ?</th>
                 <th>Actif ?</th>
+                <th>Dernière connexion</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -27,26 +30,35 @@
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.prenom }}</td>
                 <td>{{ entity.matricule }}</td>
-                <td>{{ entity.email }}</td>
+                <td><a href="mailto:{{ entity.email }}">{{ entity.email }}</a></td>
+                <td>{{ entity.username }}</td>
                 <td>
-                {% if entity.enabled == true %}
-                    Oui
-                {% else %}
-                    Non
-                {% endif %}
+                    {% if entity.roles|first() == 'ROLE_ADMIN'%}
+                        Oui
+                    {% else %}
+                        Non
+                    {% endif %}
                 </td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('employe_show', { 'id': entity.id }) }}">Visualiser</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('employe_edit', { 'id': entity.id }) }}">Éditer</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('mission_show_employe_missions', { 'id': entity.id }) }}">Visualiser missions</a>
-                    </li>
-                </ul>
+                    {% if entity.enabled == true %}
+                        Oui
+                    {% else %}
+                        Non
+                    {% endif %}
+                </td>
+                <td>{% if entity.lastLogin %}{{ entity.lastLogin |date('d/m/Y h:m') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('employe_show', { 'id': entity.id }) }}">Visualiser</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('employe_edit', { 'id': entity.id }) }}">Éditer</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('mission_show_employe_missions', { 'id': entity.id }) }}">Visualiser missions</a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         {% endfor %}

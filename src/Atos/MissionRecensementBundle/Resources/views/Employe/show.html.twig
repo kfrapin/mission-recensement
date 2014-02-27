@@ -1,7 +1,11 @@
 {% extends 'AtosMissionRecensementBundle::layout.html.twig' %}
 
+{% block title %}
+    Employé - {{ entity.nom }} {{ entity.prenom }}
+{% endblock %}
+
 {% block pre_container %}
-    <h1>Employe</h1>
+    <h1>Employé</h1>
 {% endblock %}
 
 {% block container -%}
@@ -9,20 +13,59 @@
     <table class="record_properties table table-hover table-striped table-condensed">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
                 <th>Nom</th>
                 <td>{{ entity.nom }}</td>
             </tr>
             <tr>
-                <th>Prenom</th>
+                <th>Prénom</th>
                 <td>{{ entity.prenom }}</td>
             </tr>
             <tr>
                 <th>Matricule</th>
                 <td>{{ entity.matricule }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><a href="mailto:{{ entity.email }}">{{ entity.email }}</a></td>
+            </tr>
+            <tr>
+                <th>Spécialités métier</th>
+                <td>
+                    {% for specialiteMetier in entity.specialitesMetier %}
+                        {{ specialiteMetier }}
+                        {% if not loop.last %}
+                            ,
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Identifiant</th>
+                <td>{{ entity.username }}</td>
+            </tr>
+            <tr>
+                <th>Admin ?</th>
+                <td>
+                    {% if entity.roles|first() == 'ROLE_ADMIN'%}
+                        Oui
+                    {% else %}
+                        Non
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Actif ?</th>
+                <td>
+                    {% if entity.enabled == true %}
+                        Oui
+                    {% else %}
+                        Non
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Dernière connexion</th>
+                <td>{% if entity.lastLogin %}{{ entity.lastLogin |date('d/m/Y h:m') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>

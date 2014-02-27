@@ -16,21 +16,30 @@ class EmployeType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('prenom')
+            ->add('prenom', 'text', array(
+                'label' => 'Prénom',
+            ))
             ->add('matricule')
-            ->add('username')
             ->add('email')
-            ->add('enabled', 'checkbox', array(
-                'label' => 'Actif ?',
-                'required' => false,
+            ->add('specialitesMetier', 'entity', array(
+                 'class' => 'Atos\MissionRecensementBundle\Entity\SpecialiteMetier',
+                 'expanded' => true,
+                 'multiple' => true
+            ))
+            ->add('username', 'text', array(
+                'label' => 'Identifiant',
             ))
             ->add('roles', 'choice', array(
                 'mapped' => false,
-                'label' => 'Role',
+                'label' => 'Rôle',
                 'choices' => array (
                     'ROLE_ADMIN' => 'Administrateur',
                     'ROLE_USER' => 'Utilisateur'
                 )
+            ))
+            ->add('enabled', 'checkbox', array(
+                'label' => 'Actif ?',
+                'required' => false,
             ))
             ->add('plainPassword', 'repeated', array( 
                 'type' => 'password',
@@ -38,11 +47,6 @@ class EmployeType extends AbstractType
                 'invalid_message' => 'Les mots de passe doivent correspondre',
                 'first_options' => array( 'label' => 'Mot de passe'),
                 'second_options' => array( 'label' => 'Mot de passe (confirmation)'),
-           ))
-           ->add('specialitesMetier', 'entity', array(
-                'class' => 'Atos\MissionRecensementBundle\Entity\SpecialiteMetier',
-                'expanded' => true,
-                'multiple' => true
            ))
            ;
     }
