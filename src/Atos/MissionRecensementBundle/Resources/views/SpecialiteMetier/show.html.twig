@@ -1,7 +1,11 @@
 {% extends 'AtosMissionRecensementBundle::layout.html.twig' %}
 
+{% block title %}
+    Spécialité métier - {{ entity.nom }}
+{% endblock %}
+
 {% block pre_container %}
-    <h1>SpecialiteMetier</h1>
+    <h1>Spécialité métier</h1>
 {% endblock %}
 
 {% block container -%}
@@ -9,11 +13,7 @@
     <table class="record_properties table table-hover table-striped table-condensed">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
+                <th>Spécialité métier</th>
                 <td>{{ entity.nom }}</td>
             </tr>
         </tbody>
