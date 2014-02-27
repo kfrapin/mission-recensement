@@ -34,9 +34,9 @@ class MissionType extends AbstractType
             ->add('typePrestation')
             ->add('niveau')
             ->add('type')
-            ->add('descriptionProcessus')
-            ->add('descriptionTechnique')
-            ->add('descriptionFonction')
+            ->add('descriptionProcessus', 'textarea')
+            ->add('descriptionTechnique', 'textarea')
+            ->add('descriptionFonction', 'textarea')
             ->add('dateDebut')
             ->add('dateFin')
         ;
