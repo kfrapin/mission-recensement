@@ -78,23 +78,25 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        {% if previous_page %}
-            <a href="{{ previous_page }}">
-                Retour à la liste
+<div class="record_actions">
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            {% if previous_page %}
+                <a href="{{ previous_page }}">
+                    <button type="button" class="btn btn-primary">{{ icon('th-list') }} Retour à la liste</button>
+                </a>
+            {% else %}
+                <a href="{{ path('mission') }}">
+                    <button type="button" class="btn btn-primary">{{ icon('th-list') }} Retour à la liste</button>
+                </a>
+            {% endif %}
+        </div>
+        <div class="btn-group">
+            <a href="{{ path('mission_edit', { 'id': entity.id }) }}">
+                        <button type="button" class="btn btn-warning">{{ icon('pencil') }} Éditer</button>
             </a>
-        {% else %}
-            <a href="{{ path('mission') }}">
-                Retour à la liste
-            </a>
-        {% endif %}
-    </li>
-    <li>
-        <a href="{{ path('mission_edit', { 'id': entity.id }) }}">
-            Éditer
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        </div>
+        <div class="btn-group">{{ form_widget(delete_form) }}</div>
+    </div>
+</div>
 {% endblock %}

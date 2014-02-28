@@ -280,7 +280,13 @@ class MissionController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('mission_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Supprimer'))
+            ->add('submit', 'submit', array(
+                'label' => 'Supprimer',
+                'attr' => array( 
+                    'class' => 'btn btn-danger',
+                    'icon' => 'remove',
+                )
+            ))
             ->getForm()
         ;
     }
