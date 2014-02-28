@@ -12,12 +12,16 @@
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('specialitemetier') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <p></p>
+
+    <div class="record_actions">
+        <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group">
+                <a href="{{ path('specialitemetier') }}">
+                    <button type="button" class="btn btn-primary">{{ icon('th-list') }} Retour à la liste</button>
+                </a>
+            </div>
+            <div class="btn-group">{{ form(delete_form) }}</div>
+        </div>
+    </div>
 {% endblock %}

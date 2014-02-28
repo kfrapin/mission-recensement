@@ -146,7 +146,13 @@ class SpecialiteMetierController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
+        $form->add('submit', 'submit', array(
+            'label' => 'Mettre à jour',
+                'attr' => array( 
+                    'class' => 'btn btn-success',
+                    'icon' => 'ok',
+                )
+        ));
 
         return $form;
     }
