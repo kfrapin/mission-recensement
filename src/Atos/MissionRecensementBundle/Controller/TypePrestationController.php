@@ -67,7 +67,13 @@ class TypePrestationController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Créer'));
+        $form->add('submit', 'submit', array(
+                    'label' => 'Créer',
+                    'attr' => array(
+                        'class' => 'btn btn-success',
+                        'icon' => 'ok',
+                    )
+                ));
 
         return $form;
     }

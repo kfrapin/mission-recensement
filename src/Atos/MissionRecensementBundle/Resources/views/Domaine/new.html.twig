@@ -12,11 +12,14 @@
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('domaine') }}">
-            Retour à la liste
-        </a>
-    </li>
-</ul>
+    <p></p>
+    <div class="record_actions">
+        <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group">
+                <a href="{{ path('domaine') }}">
+                    <button type="button" class="btn btn-primary">{{ icon('th-list') }} Retour à la liste</button>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
