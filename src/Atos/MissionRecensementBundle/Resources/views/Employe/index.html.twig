@@ -48,28 +48,28 @@
                 </td>
                 <td>{% if entity.lastLogin %}{{ entity.lastLogin |date('d/m/Y h:m') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('employe_show', { 'id': entity.id }) }}">Visualiser</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('employe_edit', { 'id': entity.id }) }}">Éditer</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('mission_show_employe_missions', { 'id': entity.id }) }}">Visualiser missions</a>
-                        </li>
-                    </ul>
+                    <div>
+                        <div>
+                            <a href="{{ path('employe_show', { 'id': entity.id }) }}">{{ icon('eye-open') }} Visualiser</a>
+                        </div>
+                        <div>
+                            <a href="{{ path('employe_edit', { 'id': entity.id }) }}">{{ icon('pencil') }} Éditer</a>
+                        </div>
+                        <div>
+                            <a href="{{ path('mission_show_employe_missions', { 'id': entity.id }) }}">{{ icon('eye-close') }} Visualiser missions</a>
+                        </div>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
+        <div>
+        <div>
             <a href="{{ path('employe_new') }}">
-                Créer une nouvelle entrée
+                {{ icon('plus') }} Créer une nouvelle entrée
             </a>
-        </li>
-    </ul>
+        </div>
+    </div>
     {% endblock %}

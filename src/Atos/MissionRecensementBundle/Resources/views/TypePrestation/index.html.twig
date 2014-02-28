@@ -22,25 +22,25 @@
             <tr>
                 <td>{{ entity.nom }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('typeprestation_show', { 'id': entity.id }) }}">Visualiser</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('typeprestation_edit', { 'id': entity.id }) }}">Éditer</a>
-                    </li>
-                </ul>
+                <div>
+                    <div>
+                        <a href="{{ path('typeprestation_show', { 'id': entity.id }) }}">{{ icon('eye-open') }} Visualiser</a>
+                    </div>
+                    <div>
+                        <a href="{{ path('typeprestation_edit', { 'id': entity.id }) }}">{{ icon('pencil') }} Éditer</a>
+                    </div>
+                </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
+        <div>
+        <div>
             <a href="{{ path('typeprestation_new') }}">
-                Créer une nouvelle entrée
+                {{ icon('plus') }} Créer une nouvelle entrée
             </a>
-        </li>
-    </ul>
+        </div>
+    </div>
     {% endblock %}

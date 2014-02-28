@@ -26,25 +26,23 @@
                 <td>{{ entity.siren }}</td>
                 <td>{{ entity.nic }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('client_show', { 'id': entity.id }) }}">Visualiser</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('client_edit', { 'id': entity.id }) }}">Éditer</a>
-                    </li>
-                </ul>
+                <div>
+                    <div>
+                        <a href="{{ path('client_show', { 'id': entity.id }) }}">{{ icon('eye-open') }} Visualiser</a>
+                    </div>
+                    <div>
+                        <a href="{{ path('client_edit', { 'id': entity.id }) }}">{{ icon('pencil') }} Éditer</a>
+                    </div>
+                </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
+        <div>
             <a href="{{ path('client_new') }}">
-                Créer une nouvelle entrée
+                {{ icon('plus') }} Créer une nouvelle entrée
             </a>
-        </li>
-    </ul>
+    </div>
     {% endblock %}
