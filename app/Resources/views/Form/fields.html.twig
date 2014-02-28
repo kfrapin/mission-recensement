@@ -62,3 +62,17 @@
     </select>
 {% endspaceless %}
 {% endblock choice_widget_collapsed %}
+
+{# Button widget #}
+{% block button_widget %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>
+        {% if attr is not empty and attr.icon is not empty %}
+            <span class="glyphicon glyphicon-{{ attr.icon }}"></span>
+        {% endif %}
+    {{ label|trans({}, translation_domain) }}</button>
+{% endspaceless %}
+{% endblock button_widget %}
