@@ -19,17 +19,19 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('type') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('type_edit', { 'id': entity.id }) }}">
-            Éditer
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+<div class="record_actions">
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            <a href="{{ path('type') }}">
+                <button type="button" class="btn btn-primary">{{ icon('th-list') }} Retour à la liste</button>
+            </a>
+        </div>
+        <div class="btn-group">
+            <a href="{{ path('type_edit', { 'id': entity.id }) }}">
+                        <button type="button" class="btn btn-warning">{{ icon('pencil') }} Éditer</button>
+            </a>
+        </div>
+        <div class="btn-group">{{ form_widget(delete_form) }}</div>
+    </div>
+</div>
 {% endblock %}
